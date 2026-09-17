@@ -126,11 +126,11 @@ This project gave me practical experience with:
 
 ## Screenshots
 
-### Telegram Bot Qualification Flow
+### Telegram Bot Demo — Dental Clinic Use Case
 
-This conversation demonstrates the step-by-step qualification flow: city selection, service and extras, preferred date, data summary, confirmation, and the prepayment step.
+This is a client-facing example of how the same qualification workflow can be adapted for a dental clinic: branch selection, service choice, additional option, preferred day, final data review, and prepayment confirmation.
 
-![Telegram bot qualification flow](./telegram-bot-demo.jpg)
+![Telegram bot dental clinic demo](./89bf0200-6ee2-4e2c-8fcc-7db0508f6398.png)
 
 ### AI & Routing Logic
 
