@@ -126,7 +126,17 @@ This project gave me practical experience with:
 
 ## Screenshots
 
-Project screenshots of the Make.com workflow and Telegram bot conversation will be added here.
+### AI & Routing Logic
+
+This closer view shows the central **Router**, **OpenAI**, **Telegram Bot**, and **Make Data Store** modules working together inside the automation.
+
+![AI and routing logic](./Снимок%20экрана%202026-09-17%20в%2019.02.13.png)
+
+### Full Workflow Overview
+
+The full scenario view shows the scale of the automation and the number of conditional routes used to support the multi-step lead qualification flow.
+
+![Full Make.com workflow overview](./Снимок%20экрана%202026-09-17%20в%2019.01.42.png)
 
 ## Security
 
