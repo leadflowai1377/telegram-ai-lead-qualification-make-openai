@@ -126,6 +126,12 @@ This project gave me practical experience with:
 
 ## Screenshots
 
+### Telegram Bot Qualification Flow
+
+This conversation demonstrates the step-by-step qualification flow: city selection, service and extras, preferred date, data summary, confirmation, and the prepayment step.
+
+![Telegram bot qualification flow](./telegram-bot-demo.jpg)
+
 ### AI & Routing Logic
 
 This closer view shows the central **Router**, **OpenAI**, **Telegram Bot**, and **Make Data Store** modules working together inside the automation.
