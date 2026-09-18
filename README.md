@@ -140,21 +140,33 @@ This project gave me practical experience with:
 
 ## Screenshots
 
-### Telegram Bot Demo — Dental Clinic Use Case
+### 1. Complete Qualification Flow & Manager Handoff
 
-A client-facing example of how the qualification workflow can be adapted for a service business: branch selection, service choice, additional option, preferred day, final data review, and prepayment confirmation.
+This end-to-end example shows a lead moving through the working qualification flow: city → service → extras → preferred day → review → confirmation → prepayment step → manager handoff. It demonstrates that the scenario preserves previously collected data and reaches the final business action instead of stopping at a demo response.
 
-![Telegram bot dental clinic demo](./89bf0200-6ee2-4e2c-8fcc-7db0508f6398.png)
+![Complete Telegram qualification flow and manager handoff](./Снимок%20экрана%202026-09-18%20в%2010.57.21.png)
 
-### AI & Routing Logic
+### 2. Structured Data Review & User Confirmation
 
-This closer view shows the central **Router**, **OpenAI**, **Telegram Bot**, and **Make Data Store** modules inside the automation. OpenAI is used as a fallback/experimental path; the critical qualification flow is state-based.
+Before the final step, the bot presents the collected lead data in a structured summary and asks the user to confirm or edit it. This reduces the chance of passing incomplete or incorrect information to the manager.
+
+![Structured lead data review and confirmation](./Снимок%20экрана%202026-09-18%20в%2010.55.41.png)
+
+### 3. Navigation & Editable Qualification Steps
+
+The bot exposes the main qualification sections — city, service, extras, and day — so the user can return to a specific part of the flow when needed.
+
+![Telegram bot qualification navigation](./Снимок%20экрана%202026-09-18%20в%2010.56.17.png)
+
+### 4. AI & Routing Logic in Make.com
+
+This closer view shows the central **Router**, **OpenAI**, **Telegram Bot**, and **Make Data Store** modules. OpenAI is an experimental fallback path; the critical qualification flow is controlled by state-based routing and validation.
 
 ![AI and routing logic](./Снимок%20экрана%202026-09-17%20в%2019.02.13.png)
 
-### Full Workflow Overview
+### 5. Full Make.com Workflow
 
-The full scenario view shows the automation and the conditional routes used to support the multi-step lead qualification flow.
+The full scenario view shows the scale of the automation and the conditional routes supporting the multi-step qualification process.
 
 ![Full Make.com workflow overview](./Снимок%20экрана%202026-09-17%20в%2019.01.42.png)
 
