@@ -1,74 +1,93 @@
-# AI Lead Qualification Telegram Bot
+# LeadFlow AI — AI Lead Qualification Automation
 
-A no-code business automation project built with **Make.com, Telegram Bot API, Make Data Store, and an experimental OpenAI fallback** to capture incoming leads, guide them through a qualification flow, store structured information, and hand qualified leads over to a manager.
+**Portfolio project by Ihor Skyba**
 
-The project was created as a practical automation demo focused on reliable lead handling, multi-step conversational logic, structured data collection, validation, and human handoff.
+AI-powered lead handling workflow built with **Make.com, OpenAI, Telegram Bot API, Data Store, routers, filters, webhooks, and human handoff logic**.
 
-## What the Workflow Does
+[Website](https://leadflowai1377.netlify.app) · [Instagram](https://www.instagram.com/leadflow.ai_1377/) · [GitHub Profile](https://github.com/leadflowai1377)
 
-- Receives incoming messages from Telegram
-- Guides users through city, service, extras, and preferred date selection
-- Collects lead information step by step
-- Stores conversation state and structured lead data in Make Data Store
-- Routes users through different paths using routers, filters, and conditional logic
-- Handles custom city input and other state-dependent user input
-- Validates input in multi-step flows
-- Shows a final lead summary before confirmation
-- Supports prepayment confirmation logic
-- Sends qualified lead information to a manager
+---
+
+## What this project solves
+
+Service businesses often lose leads because replies are slow, qualification is manual, and important information is scattered across chats.
+
+This workflow automates the first stage of lead handling:
+
+**New inquiry → qualification → structured data collection → confirmation → manager notification → human handoff**
+
+The goal is simple: help a business respond faster, collect the right information, and pass a qualified lead to a human with context already prepared.
+
+## What the automation does
+
+- Receives incoming Telegram messages
+- Guides a lead through city, service, extras, and preferred day selection
+- Accepts free-text input where needed
+- Stores conversation state and lead data in Make Data Store
+- Uses routers, filters, and conditional logic to control the flow
+- Validates multi-step user input
+- Shows a final summary before confirmation
+- Handles prepayment confirmation
+- Sends structured lead information to a manager
 - Supports human handoff after qualification
-- Includes an OpenAI fallback route that was tested for free-text messages
+- Includes an experimental OpenAI fallback for free-text messages
 
-## My Role
-
-I designed, built, tested, and iterated on the automation workflow, including:
-
-- Conversation flow and state design
-- Make.com routers, filters, and conditional branches
-- Lead data collection and qualification logic
-- Telegram Bot interaction flow
-- Make Data Store state management
-- Input validation and fallback handling
-- OpenAI integration and testing
-- Manager notifications and human handoff
-- Debugging routing/filter issues and edge cases
-- Reworking parts of the architecture after testing
-
-## Tools & Technologies
-
-- **Make.com** — workflow automation, routers, filters, conditions, and scenario logic
-- **Telegram Bot API** — user communication and bot interaction
-- **Make Data Store** — state management and structured lead data
-- **OpenAI** — experimental fallback for free-text messages
-- **Webhooks / event-driven logic**
-- **Conditional routing and input validation**
-
-## Workflow Architecture
+## Workflow architecture
 
 ```text
-Telegram User
-    ↓
+Lead
+  ↓
 Telegram Bot
-    ↓
+  ↓
 Make.com
-    ↓
-Routers & Filters
-    ↓
-State Management + Structured Data Collection
-    ↓
-Qualification Flow
-    ↓
-Review & Confirmation
-    ↓
+  ↓
+Routers + Filters
+  ↓
+State Management / Data Store
+  ↓
+Lead Qualification
+  ↓
+Review + Confirmation
+  ↓
 Prepayment Step
-    ↓
-Manager Notification + Human Handoff
+  ↓
+Manager Notification
+  ↓
+Human Handoff
+```
 
-Optional / fallback path:
+Optional path:
+
+```text
 Free-text message → OpenAI → Telegram response
 ```
 
-## Example User Flow
+## Tech stack
+
+- **Make.com** — automation orchestration
+- **OpenAI** — natural-language fallback testing
+- **Telegram Bot API** — lead communication
+- **Make Data Store** — state and lead data
+- **Webhooks / event-driven logic**
+- **Routers, filters, conditions, validation**
+- **Human handoff logic**
+
+## My role
+
+I designed, built, tested, and debugged the full workflow, including:
+
+- Conversation flow architecture
+- State-based lead qualification
+- Routers and conditional branches
+- Data mapping and storage
+- Telegram interaction logic
+- Input validation
+- OpenAI integration testing
+- Manager notifications
+- Human handoff
+- Debugging filters, routing issues, and edge cases
+
+## Example lead flow
 
 ```text
 /start
@@ -79,101 +98,71 @@ Choose service
   ↓
 Choose extras
   ↓
-Choose date / time
+Choose preferred day
   ↓
-Review collected information
+Review lead information
   ↓
-Confirm details
+Confirm
   ↓
 Prepayment confirmation
   ↓
 Manager handoff
 ```
 
-## Why the Main Flow Is Deterministic
+## Project screenshots
 
-An important part of this project was deciding **where AI was actually useful**.
-
-I initially tested OpenAI as a broader free-text conversational layer. During testing, I found that the core qualification steps — collecting required fields, validating selections, preserving state, and producing a reliable handoff — benefited more from deterministic state-based logic than from generative responses.
-
-For that reason, the production-style qualification flow uses explicit states, filters, and validation. OpenAI remains an experimental fallback rather than being responsible for critical business logic.
-
-If I rebuilt the project today, I would keep this separation: deterministic logic for required business steps and LLMs only where natural-language understanding adds measurable value.
-
-## Key Features
-
-- Multi-step lead qualification
-- Structured lead data collection
-- State-based conversation logic
-- Automated routing
-- Input validation
-- Custom user-input handling
-- Lead summary before final confirmation
-- Prepayment confirmation
-- Manager notifications
-- Human handoff
-- Experimental LLM fallback
-
-## Project Goal
-
-The goal was to automate the first stage of customer communication so a business can:
-
-- respond to leads consistently
-- collect required information automatically
-- reduce repetitive manual communication
-- keep lead data structured
-- pass a qualified prospect to a manager with useful context
-
-## What I Learned
-
-This project gave me practical experience with:
-
-- designing multi-step automation workflows
-- working with structured data and state management
-- debugging conditional branches and filters
-- testing LLM integration instead of assuming AI is always the best solution
-- validating user input
-- handling edge cases in conversational flows
-- separating deterministic business logic from generative AI
-- combining automation with human handoff
-- iterating on architecture based on test results
-
-## Screenshots
-
-### 1. Complete Qualification Flow & Manager Handoff
-
-This end-to-end example shows a lead moving through the working qualification flow: city → service → extras → preferred day → review → confirmation → prepayment step → manager handoff. It demonstrates that the scenario preserves previously collected data and reaches the final business action instead of stopping at a demo response.
+### Complete qualification flow + manager handoff
 
 ![Complete Telegram qualification flow and manager handoff](./Снимок%20экрана%202026-09-18%20в%2010.57.21.png)
 
-### 2. Structured Data Review & User Confirmation
-
-Before the final step, the bot presents the collected lead data in a structured summary and asks the user to confirm or edit it. This reduces the chance of passing incomplete or incorrect information to the manager.
+### Structured lead summary + confirmation
 
 ![Structured lead data review and confirmation](./Снимок%20экрана%202026-09-18%20в%2010.55.41.png)
 
-### 3. Navigation & Editable Qualification Steps
-
-The bot exposes the main qualification sections — city, service, extras, and day — so the user can return to a specific part of the flow when needed.
+### Editable qualification steps
 
 ![Telegram bot qualification navigation](./Снимок%20экрана%202026-09-18%20в%2010.56.17.png)
 
-### 4. AI & Routing Logic in Make.com
-
-This closer view shows the central **Router**, **OpenAI**, **Telegram Bot**, and **Make Data Store** modules. OpenAI is an experimental fallback path; the critical qualification flow is controlled by state-based routing and validation.
+### Make.com AI + routing logic
 
 ![AI and routing logic](./Снимок%20экрана%202026-09-17%20в%2019.02.13.png)
 
-### 5. Full Make.com Workflow
-
-The full scenario view shows the scale of the automation and the conditional routes supporting the multi-step qualification process.
+### Full Make.com scenario
 
 ![Full Make.com workflow overview](./Снимок%20экрана%202026-09-17%20в%2019.01.42.png)
 
+## Design decision: deterministic logic first
+
+The critical qualification steps use explicit states, filters, and validation rather than relying on an LLM for every decision.
+
+OpenAI is used only where natural-language handling can add value. Required business steps stay deterministic so the workflow remains predictable and easier to debug.
+
+## Business use cases
+
+The same architecture can be adapted for:
+
+- Med Spas
+- Dental clinics
+- Aesthetic clinics
+- Home-service businesses
+- Agencies
+- Appointment-based businesses
+- Other service businesses receiving leads from social media or websites
+
+Possible production channels include **Instagram, WhatsApp, websites, SMS, CRM systems, and other APIs**.
+
 ## Security
 
-API keys, bot tokens, webhook secrets, private credentials, and real customer data are **not included** in this public repository.
+This public repository contains **no API keys, bot tokens, webhook secrets, private credentials, or real customer data**.
 
 ## Status
 
-The core qualification workflow is functional and tested: structured data collection, state handling, routing, confirmation, prepayment logic, and manager handoff. The OpenAI free-text route is experimental and is not used for critical qualification steps.
+The core workflow is functional and tested for structured lead collection, routing, confirmation, prepayment logic, manager notification, and human handoff.
+
+---
+
+### LeadFlow AI
+
+I build practical AI automation for service businesses: lead response, qualification, follow-up, CRM workflows, webhooks, APIs, and Make.com integrations.
+
+[Visit website](https://leadflowai1377.netlify.app) · [Instagram](https://www.instagram.com/leadflow.ai_1377/)
